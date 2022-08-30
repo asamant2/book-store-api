@@ -3,6 +3,8 @@ jdk:
   - openjdk8
 before_deploy:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
+script:
+  - ./gradlew check
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
